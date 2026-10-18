@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rawda Ahmed</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f7f4ef;
+      color: #2c2a26;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #2c2a26;
+      color: #f7f4ef;
+      padding: 16px 24px;
+      position: sticky;
+      top: 0;
+    }
+
+    nav {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #f7f4ef;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    section {
+      padding: 40px 0;
+      border-bottom: 1px solid #e2dcd2;
+    }
+
+    section:last-child {
+      border-bottom: none;
+    }
+
+    h1 {
+      font-size: 42px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e2dcd2;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    a.email {
+      color: #6b4f2a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#projects">My Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <h1>Rawda Ahmed</h1>
+      <p>Third-year Software Engineering student</p>
+      <p>Welcome to my portfolio. This page is my first project.</p>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        My name is Rawda Ahmed. I am a third-year software engineering student.
+        I am learning how to build websites, and this simple page is the first
+        project I have made.
+      </p>
+    </section>
+
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="card">
+        <h3>Student Portfolio</h3>
+        <p>
+          A one-page website made with HTML. It has a short introduction,
+          this project list, and a way to contact me.
+        </p>
+        <p>This is my first project.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>You can email me at:</p>
+      <p><a class="email" href="mailto:rawda7920@gmail.com">rawda7920@gmail.com</a></p>
+    </section>
+  </main>
+</body>
+</html>
