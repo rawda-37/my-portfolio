@@ -26,9 +26,17 @@
       top: 0;
     }
 
-    nav {
+    .bar {
       max-width: 720px;
       margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    nav {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
@@ -41,6 +49,22 @@
 
     nav a:hover {
       text-decoration: underline;
+    }
+
+    #night-mode {
+      background: transparent;
+      color: #f7f4ef;
+      border: 1px solid #f7f4ef;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    #night-mode:hover {
+      background: #f7f4ef;
+      color: #2c2a26;
     }
 
     main {
@@ -96,16 +120,42 @@
       font-size: 16px;
       margin: 0;
     }
+
+    body.night {
+      background: #1a1917;
+      color: #f3efe8;
+    }
+
+    body.night header,
+    body.night footer {
+      background: #11100e;
+    }
+
+    body.night section {
+      border-bottom-color: #3a3630;
+    }
+
+    body.night .card {
+      background: #242220;
+      border-color: #3a3630;
+    }
+
+    body.night a.email {
+      color: #e4c89a;
+    }
   </style>
 </head>
 <body>
   <header>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About Me</a>
-      <a href="#projects">My Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="bar">
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#projects">My Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="night-mode" type="button" aria-pressed="false">Night mode</button>
+    </div>
   </header>
 
   <main>
@@ -113,17 +163,13 @@
       <h1>Rawda Ahmed</h1>
       <p>Rawda Ahmed | Aspiring Software Engineer</p>
       <p>I am a third-year Software Engineering student passionate about developing innovative, practical, and user-friendly digital solutions. I am continuously expanding my knowledge of web development and software technologies while strengthening my problem-solving and programming skills.</p>
-
-<p>Welcome to my portfolio, where I showcase my projects, highlight my skills, and share my journey toward becoming a professional software engineer. This website marks the beginning of my journey in web development and reflects my commitment to continuous learning and growth.</p>
+      <p>Welcome to my portfolio, where I showcase my projects, highlight my skills, and share my journey toward becoming a professional software engineer. This website marks the beginning of my journey in web development and reflects my commitment to continuous learning and growth.</p>
     </section>
 
     <section id="about">
       <h2>About Me</h2>
-      <p>
-       My name is Rawda Ahmed, and I am a third-year Software Engineering student with a growing passion for web development and software technologies. I am continuously developing my technical skills and exploring new ways to create practical and user-friendly digital solutions.</p>
-
-<p>This portfolio is my first web development project, showcasing the beginning of my journey in building websites and expanding my knowledge of software engineering.
-      </p>
+      <p>My name is Rawda Ahmed, and I am a third-year Software Engineering student with a growing passion for web development and software technologies. I am continuously developing my technical skills and exploring new ways to create practical and user-friendly digital solutions.</p>
+      <p>This portfolio is my first web development project, showcasing the beginning of my journey in building websites and expanding my knowledge of software engineering.</p>
     </section>
 
     <section id="projects">
@@ -138,17 +184,34 @@
       </div>
     </section>
 
-<section id="contact">
+    <section id="contact">
       <h2>Contact</h2>
       <p>You can email me at:</p>
       <p><a class="email" href="mailto:rawda7920@gmail.com">rawda7920@gmail.com</a></p>
     </section>
-
   </main>
 
   <footer>
     <p>© 2026 Rawda Ahmed. All Rights Reserved.</p>
   </footer>
- 
+
+  <script>
+    const nightButton = document.getElementById("night-mode");
+
+    function setNightMode(on) {
+      document.body.classList.toggle("night", on);
+      nightButton.setAttribute("aria-pressed", String(on));
+      nightButton.textContent = on ? "Day mode" : "Night mode";
+      localStorage.setItem("night-mode", on ? "on" : "off");
+    }
+
+    if (localStorage.getItem("night-mode") === "on") {
+      setNightMode(true);
+    }
+
+    nightButton.addEventListener("click", function () {
+      setNightMode(!document.body.classList.contains("night"));
+    });
+  </script>
 </body>
 </html>
