@@ -149,5 +149,22 @@
   <footer>
     <p>© 2026 Rawda Ahmed. All Rights Reserved.</p>
   </footer>
+    <script>
+    var button = document.getElementById("night-btn");
+
+    function setNight(on) {
+      document.body.classList.toggle("night", on);
+      button.textContent = on ? "Day mode" : "Night mode";
+      localStorage.setItem("night", on ? "on" : "off");
+    }
+
+    if (localStorage.getItem("night") === "on") {
+      setNight(true);
+    }
+
+    button.addEventListener("click", function () {
+      setNight(!document.body.classList.contains("night"));
+    });
+  </script>
 </body>
 </html>
